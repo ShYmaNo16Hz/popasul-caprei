@@ -1,0 +1,212 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=League+Spartan:wght@300;400;500;600;700&display=swap&display=optional&display=fallback");
+
+html {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  margin: 0px;
+  font-family: "Inter";
+  color: var(--neutral-200);
+  background-color: var(--neutral-900);
+}
+
+a {
+  text-decoration: none !important;
+  color: unset;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+:root {
+  --neutral-50: #f0f1f5;
+  --neutral-100: #e0e4eb;
+  --neutral-200: #c1c9d7;
+  --neutral-300: #a2aec3;
+  --neutral-400: #8393af;
+  --neutral-500: #64789b;
+  --neutral-600: #50607c;
+  --neutral-700: #3c485d;
+  --neutral-800: #28303e;
+  --neutral-900: #14181f;
+  --neutral-950: #0a0c0f;
+
+  --primary-50: #f8f7f4;
+  --primary-100: #f0eee4;
+  --primary-200: #dfdac9;
+  --primary-300: #cbc2a6;
+  --primary-400: #baab89;
+  --primary-500: #a69169;
+  --primary-600: #99805d;
+  --primary-700: #80694e;
+  --primary-800: #695643;
+  --primary-900: #554739;
+  --primary-950: #2d241d;
+
+  --accent-50: #f0f9f5;
+  --accent-100: #daf1e5;
+  --accent-200: #b8e2cf;
+  --accent-300: #8acbb1;
+  --accent-400: #58af8f;
+  --accent-500: #379274;
+  --accent-600: #26755c;
+  --accent-700: #1e5e4c;
+  --accent-800: #19473a;
+  --accent-900: #163e33;
+  --accent-950: #0c221d;
+}
+
+.text-neutral-200 {
+  color: var(--neutral-200);
+}
+.text-neutral-300 {
+  color: var(--neutral-200);
+}
+.text-neutral-400 {
+  color: var(--neutral-200);
+}
+.text-neutral-500 {
+  color: var(--neutral-500);
+}
+.text-neutral-600 {
+  color: var(--neutral-600);
+}
+
+h1.display-1 {
+  font-weight: 500;
+  font-size: 80px;
+  line-height: 135%;
+}
+h1.display-2 {
+  font-weight: 500;
+  font-size: clamp(24px, 8vw, 64px);
+}
+h1.reg {
+  font-weight: 400;
+  font-size: 41px;
+  line-height: 125%;
+}
+h1.semibold {
+  font-weight: 600;
+  font-size: 41px;
+  line-height: 125%;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: clamp(16px, 4vw, 32px);
+  line-height: 125%;
+}
+.h2.semibold {
+  font-family: League Spartan;
+  font-weight: 600;
+  font-size: clamp(18px, 8vw, 32px);
+  line-height: 125%;
+}
+
+h3 {
+  font-weight: 400;
+  font-size: 29px;
+  line-height: 125%;
+}
+.h3.semibold {
+  font-weight: 600;
+  font-size: 29px;
+  line-height: 125%;
+}
+
+h4 {
+  font-weight: 400;
+  font-size: 23px;
+  line-height: 125%;
+}
+h4.semibold {
+  font-weight: 600;
+  font-size: 23px;
+  line-height: 125%;
+}
+
+h5 {
+  font-weight: 400;
+  font-size: clamp(14px, 3vw, 20px);
+  line-height: 125%;
+  letter-spacing: 0%;
+}
+
+h5.semibold {
+  font-weight: 600;
+  line-height: 125%;
+}
+
+h6 {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 125%;
+}
+h6.semibold {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 125%;
+  letter-spacing: 0%;
+}
+
+.paragraph {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 135%;
+}
+
+.paragraph.bold {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 135%;
+}
+
+.input-1 {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 125%;
+}
+
+.btn {
+  padding: 11px 15px;
+  transition: 0.2s;
+  border-radius: 50px;
+}
+@media (max-width: 576px) {
+  .btn img {
+    max-width: 18px;
+  }
+}
+
+@media (min-width: 576px) {
+  .btn {
+    padding: 15px 65px;
+  }
+  .btn-xl {
+    padding: 18px 23px;
+  }
+}
+
+.btn-light-brown {
+  background: linear-gradient(93.61deg, #99805d 0%, #baab89 100%);
+  box-shadow: 0px 12px 32px var(--Number) #a68a3f3d;
+  color: white;
+  font-family: Montserrat;
+  font-weight: 500;
+  font-size: clamp(14px, 3vw, 16px);
+  line-height: 135%;
+  text-transform: uppercase;
+}
+.btn-light-brown:hover {
+  background-color: #99805d;
+  color: white;
+}
+
+.section-title {
+  font-family: Montserrat;
+  font-size: clamp(24px, 8vw, 48px);
+  font-weight: 600;
+  color: white;
+}
