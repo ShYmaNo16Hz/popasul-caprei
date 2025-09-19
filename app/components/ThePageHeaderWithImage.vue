@@ -5,7 +5,7 @@
       <h1 class="title">
         {{ title }}
       </h1>
-      <div class="description">
+      <div class="description px-4 px-sm-0">
         {{ description }}
       </div>
     </div>
@@ -64,7 +64,7 @@ export default {
 .description {
   font-family: Inter;
   font-weight: 400;
-  font-size: 24px;
+  font-size: clamp(14px, 4vw, 24px);
   color: var(--neutral-200);
   max-width: 600px;
   text-align: center;
