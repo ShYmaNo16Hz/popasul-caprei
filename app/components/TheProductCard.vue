@@ -3,7 +3,10 @@
   <div class="card" @click="ViewProduct()">
     <div class="card-body">
       <div class="card-content">
-        <img :src="product.image" alt="Product image" class="mb-5" />
+        <NuxtImg :src="product.image" alt="Product image" class="mb-3" />
+        <div class="badge badge-neutral-800 mb-3">
+          {{ product.category }}
+        </div>
         <h5 class="semibold">
           {{ product.name }}
         </h5>
@@ -45,6 +48,7 @@ export default {
   transition: 0.2s;
   position: relative;
   overflow: hidden;
+  height: 100%;
 }
 .card:hover {
   border: 1px solid var(--primary-600);
@@ -64,10 +68,6 @@ export default {
   padding: 24px;
 }
 .card-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  text-align: center;
   position: relative;
   z-index: 1;
 }
@@ -79,6 +79,7 @@ h5 {
 
 .card-content img {
   height: 210px;
+  width: 100%;
   object-fit: cover;
   object-position: center;
   border-radius: 8px;

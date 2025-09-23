@@ -40,9 +40,9 @@ export default {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  height: clamp(40vh, 45vw, 550px);
-  max-height: 550px;
+  height: clamp(360px, 45vw, 550px);
   position: relative;
+  padding-top: 1px;
 }
 .hero-gradient {
   position: absolute;
@@ -64,7 +64,7 @@ export default {
 .description {
   font-family: Inter;
   font-weight: 400;
-  font-size: clamp(14px, 4vw, 24px);
+  font-size: clamp(14px, 3vw, 24px);
   color: var(--neutral-200);
   max-width: 600px;
   text-align: center;
@@ -72,7 +72,7 @@ export default {
 
 h1 {
   font-family: Montserrat;
-  font-size: clamp(24px, 8vw, 96px);
+  font-size: clamp(24px, 9vw, 96px);
   font-weight: 600;
   text-align: center;
   text-transform: uppercase;

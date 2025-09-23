@@ -19,12 +19,15 @@ export const socialMedias = () => {
     tiktok: config.public.contactTikTok,
     email: config.public.contactEmail,
     phone: config.public.contactPhone,
-    address: config.public.contactAddress
+    address: config.public.contactAddress,
   };
 };
 
-
 export const toggleGlobalLoader = (value: boolean) => {
-  const loader = useState('globalLoader', () => false);
+  const loader = useState("globalLoader", () => false);
   loader.value = value; // show loader
-}
+};
+
+export const productKeys = () => {
+  return ["name", "category", "price", "description", "image"];
+};

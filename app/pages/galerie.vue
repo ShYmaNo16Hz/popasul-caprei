@@ -29,6 +29,22 @@ const handleImageLoaded = () => {
 //     });
 //   }
 // });
+
+const router = useRouter();
+const currentRoute = router.currentRoute;
+const config = useRuntimeConfig();
+const fullUrl = `${config.public.domainURL}${currentRoute.value.fullPath}`;
+useSeoMeta({
+  title: "Galerie Popasul Caprei - Atmosferă și preparate tradiționale",
+  description:
+    "Vezi galeria foto a restaurantului Popasul Caprei din Bucovina și descoperă atmosfera caldă, preparatele tradiționale și ospitalitatea bucovineană.",
+  keywords:
+    "galerie Popasul Caprei, imagini restaurant, preparate tradiționale, atmosferă Bucovina",
+  ogUrl: fullUrl,
+  ogTitle: "Galerie Popasul Caprei - Atmosferă și preparate tradiționale",
+  ogDescription:
+    "Imagini din restaurantul Popasul Caprei din Bucovina: preparate tradiționale, decor autentic și ospitalitate locală.",
+});
 </script>
 <template>
   <ThePageHeaderWithImage

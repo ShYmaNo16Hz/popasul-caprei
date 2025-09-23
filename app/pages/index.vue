@@ -1,6 +1,24 @@
 <!--
 https://docs.google.com/spreadsheets/d/1pHEYVEN6noxTO379AEIJiUFGxOJ1ujV_tJT46FKitQQ/edit?gid=0#gid=0
 -->
+<script setup>
+const router = useRouter();
+const currentRoute = router.currentRoute;
+const config = useRuntimeConfig();
+const fullUrl = `${config.public.domainURL}${currentRoute.value.fullPath}`;
+useSeoMeta({
+  title: "Popasul Caprei - Preparate tradiționale din Bucovina",
+  description:
+    "Restaurant Popasul Caprei din Bucovina te așteaptă cu preparate tradiționale, ingrediente locale și gusturi autentice care amintesc de copilărie.",
+  keywords:
+    "restaurant Bucovina, Popasul Caprei, preparate tradiționale, mâncare autentică, ingrediente locale",
+  ogUrl: fullUrl,
+  ogTitle: "Popasul Caprei - Preparate tradiționale din Bucovina",
+  ogDescription:
+    "Descoperă la Popasul Caprei din Bucovina savoarea preparatelor tradiționale din ingrediente locale.",
+  ogType: "website",
+});
+</script>
 <template>
   <div class="overflow-hidden">
     <TheHomeHeader />
@@ -90,12 +108,10 @@ export default {
   },
   methods: {
     ViewProduct(prod) {
-      console.log("we");
-
       this.selectedProduct = prod;
       openModal("productModal");
     },
-    async Test() {
+    async GetProducts() {
       //https://docs.google.com/spreadsheets/d/79AEIJiUFGxOJ1ujV_tJT46FKitQQ/edit?gid=0#gid=0
 
       const SPREADSHEET_ID = "1pHEYVEN6noxTO379AEIJiUFGxOJ1ujV_tJT46FKitQQ";
@@ -105,26 +121,25 @@ export default {
       )
         .then((res) => res.text())
         .then((data) => JSON.parse(data.substring(47, data.length - 2)));
+      const keys = productKeys();
+      let list = table.rows.map((row) => {
+        const values = keys.map((_, i) =>
+          row.c[i] && row.c[i].v ? row.c[i].v : null
+        );
 
-      let list = table.rows.map((row) => row["c"].filter((row) => row));
-      list = list
-        .map((item) => item.filter((val) => val["v"] && val["v"] !== " "))
-        .filter((item) => item.length);
-
-      const keys = ["name", "price", "description", "image"];
-      list = list.map((smallList) => {
-        const values = smallList.map((val) => val["v"]);
         const obj = {};
         keys.forEach((key, index) => {
           obj[key] = values[index];
         });
+
         return obj;
       });
+
       this.products = list;
     },
   },
   created() {
-    this.Test();
+    this.GetProducts();
   },
 };
 </script>

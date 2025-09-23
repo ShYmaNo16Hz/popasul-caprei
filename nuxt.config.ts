@@ -17,7 +17,7 @@ export default defineNuxtConfig({
         { property: "og:type", content: "website" },
         {
           property: "og:image",
-          //content: `${process.env.NUXT_DOMAIN}/thumbnail.webp`,
+          content: `https://popasul-caprei.vercel.app/thumbnail.webp`,
         },
       ],
       link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
@@ -29,7 +29,7 @@ export default defineNuxtConfig({
 
     // Public
     public: {
-      domain: '',
+      domainURL: 'https://popasul-caprei.vercel.app',
       contactFacebook: 'https://www.facebook.com/hoteltoacabellevue',
       contactYouTube: 'https://www.youtube.com/user/HotelToacaBellevue',
       contactInstagram: 'https://www.instagram.com/toaca_bellevue',

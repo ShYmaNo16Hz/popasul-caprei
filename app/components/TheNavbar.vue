@@ -5,10 +5,11 @@
         <div class="row align-items-center">
           <div class="col">
             <a href="/">
-              <img src="/logo.webp" alt="Logo" class="logo" />
+              <img src="/logo.webp" alt="Logo" class="logo d-none d-xl-block" />
+              <img src="/logo-mobile.webp" alt="Logo" class="logo d-xl-none" />
             </a>
           </div>
-          <div class="col-auto mt-2 pe-5">
+          <div class="col-auto mt-2 pe-5 d-none d-xl-block">
             <ul class="menu-pages">
               <li>
                 <NuxtLink to="/">Acasă</NuxtLink>
@@ -18,6 +19,9 @@
               </li>
               <li>
                 <NuxtLink to="/galerie">Galerie</NuxtLink>
+              </li>
+              <li>
+                <NuxtLink to="/despre-noi">Despre noi</NuxtLink>
               </li>
             </ul>
           </div>
@@ -58,7 +62,7 @@
               <img src="@/assets/icons/youtube.svg" alt="YouTube" />
             </a>
           </div>
-          <div class="col-auto mt-4 d-none">
+          <div class="col-auto mt-2 d-sm-none">
             <div
               class="hamburger-menu"
               @click="menuOpen = !menuOpen"
@@ -76,19 +80,13 @@
           <NuxtLink to="/">Acasă</NuxtLink>
         </li>
         <li>
-          <NuxtLink to="/">Cazare</NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="/">Restaurante</NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="/">Evenimente</NuxtLink>
+          <NuxtLink to="/meniu">Meniu</NuxtLink>
         </li>
         <li>
           <NuxtLink to="/galerie">Galerie</NuxtLink>
         </li>
         <li>
-          <NuxtLink to="/">Contact</NuxtLink>
+          <NuxtLink to="/despre-noi">Despre noi</NuxtLink>
         </li>
       </ul>
     </div>
@@ -189,11 +187,17 @@ export default {
   margin-right: 21px;
 }
 
-@media (max-width: 1040px) {
+@media (max-width: 1200px) {
   .logo {
-    max-width: 130px !important;
+    max-width: 70px !important;
   }
 }
+/*
+@media (max-width: 576px) {
+  .logo {
+    max-width: 80px !important;
+  }
+} */
 
 @media (min-width: 1200px) {
   .menu-pages > li:not(:last-child) {
@@ -247,14 +251,14 @@ nav > .container {
 }
 
 .bigger-menu {
-  height: calc(100vh - 78px);
-  background: rgba(0, 0, 0, 0.7);
+  height: calc(100vh - 55px);
+  background: var(--neutral-950);
   backdrop-filter: blur(60px);
   width: 100%;
   position: fixed;
-  top: 78px;
+  top: 99px;
   padding-top: 40px;
-  z-index: 20;
+  z-index: 50;
   display: flex;
   flex-direction: column;
   align-items: center;

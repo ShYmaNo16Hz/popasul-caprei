@@ -43,7 +43,7 @@ const onImageError = () => {
 <style scoped>
 .card-image {
   position: relative;
-  height: clamp(340px, 40vw, 420px);
+  height: clamp(250px, 40vw, 420px);
   border-radius: 12px;
   overflow: hidden;
 }

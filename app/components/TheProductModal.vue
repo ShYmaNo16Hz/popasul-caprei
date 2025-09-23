@@ -6,7 +6,7 @@
     aria-labelledby="productModalLabel"
   >
     <div
-      class="modal-dialog modal-dialog-centered modal-lg modal-fullscreen-md-down"
+      class="modal-dialog modal-dialog-centered modal-md modal-fullscreen-md-down"
     >
       <div class="modal-content">
         <div class="modal-header">
@@ -20,9 +20,13 @@
         <div class="modal-body">
           <div class="text-center">
             <img class="product-img" :src="product.image" alt="Product image" />
+            <div />
+            <div class="badge badge-neutral-800 mt-3">
+              {{ product.category }}
+            </div>
           </div>
 
-          <div class="row align-items-center mt-5 pt-4">
+          <div class="row align-items-center mt-5">
             <div class="col">
               <h5 class="semibold">
                 {{ product.name }}
