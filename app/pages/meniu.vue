@@ -202,13 +202,15 @@ export default {
       this.productsLoaded = false;
 
       this.$nextTick(() => {
-        const all = document.querySelectorAll('[id^="btn-filter"]');
-        const spacing = 3;
-        let total = 0;
-        all.forEach((btn) => {
-          total += btn.offsetWidth + spacing;
-        });
-        this.rowButtonsWidth = total;
+        if (document && process.client) {
+          const all = document.querySelectorAll('[id^="btn-filter"]');
+          const spacing = 3;
+          let total = 0;
+          all.forEach((btn) => {
+            total += btn.offsetWidth + spacing;
+          });
+          this.rowButtonsWidth = total;
+        }
       });
     },
 
