@@ -156,6 +156,7 @@ export default {
   },
   methods: {
     SelectCategory(category) {
+      this.searchText = "";
       this.selectedCategory = category;
       if (window) window.scrollTo({ top: 403, behavior: "smooth" });
     },

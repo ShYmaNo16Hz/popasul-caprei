@@ -219,6 +219,7 @@ nav {
   background-color: var(--neutral-950);
   height: 100px;
   box-shadow: 0px 20px 40px 0px #00000033;
+  z-index: 100;
 }
 nav::after {
   position: absolute;
