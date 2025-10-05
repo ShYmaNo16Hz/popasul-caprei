@@ -112,8 +112,6 @@ export default {
       openModal("productModal");
     },
     async GetProducts() {
-      //https://docs.google.com/spreadsheets/d/79AEIJiUFGxOJ1ujV_tJT46FKitQQ/edit?gid=0#gid=0
-
       const SPREADSHEET_ID = "1pHEYVEN6noxTO379AEIJiUFGxOJ1ujV_tJT46FKitQQ";
 
       const { table } = await fetch(
