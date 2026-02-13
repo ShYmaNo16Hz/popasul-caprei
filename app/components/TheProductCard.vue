@@ -1,9 +1,8 @@
-<script setup></script>
 <template>
   <div class="card" @click="ViewProduct()">
     <div class="card-body">
       <div class="card-content">
-        <NuxtImg :src="product.image" alt="Product image" class="mb-3" />
+        <NuxtImg :src="productImage" alt="Product image" class="mb-3" />
         <div class="badge badge-neutral-800 mb-3">
           {{ product.category }}
         </div>
@@ -15,22 +14,26 @@
   </div>
 </template>
 <script>
+// 1. Import your default image here
+
 export default {
   emits: ["view-product"],
   props: {
     product: {
       required: true,
       type: Object,
-      default: {
+      default: () => ({
         name: "",
         price: "",
         description: "",
         image: "",
-      },
+      }),
     },
   },
-  data() {
-    return {};
+  computed: {
+    productImage() {
+      return this.product.image || "/default-menu-item.webp";
+    },
   },
   methods: {
     ViewProduct() {

@@ -112,7 +112,8 @@ export default {
       openModal("productModal");
     },
     async GetProducts() {
-      const SPREADSHEET_ID = "1pHEYVEN6noxTO379AEIJiUFGxOJ1ujV_tJT46FKitQQ";
+      //const SPREADSHEET_ID = "1pHEYVEN6noxTO379AEIJiUFGxOJ1ujV_tJT46FKitQQ";
+      const SPREADSHEET_ID = "1cfUow7-iV2oyO7Hhfo8OQe00qeGtqFjerSP4PG1jg0k";
 
       const { table } = await fetch(
         `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:json`
@@ -132,7 +133,26 @@ export default {
 
         return obj;
       });
+      list = list.map((item) => {
+        let finalImage = "/default-menu-item.webp";
 
+        if (item.image && item.image.trim() !== "") {
+          if (item.image.includes("drive.google.com")) {
+            const fileId = item.image.split("/d/")[1]?.split("/")[0];
+            if (fileId) {
+              finalImage = `https://lh3.googleusercontent.com/u/0/d/${fileId}=s2000`;
+            }
+          } else {
+            finalImage = item.image;
+          }
+        }
+
+        return {
+          ...item,
+          category: item.category ?? "Altele",
+          image: finalImage,
+        };
+      });
       this.products = list;
     },
   },

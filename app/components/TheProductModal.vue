@@ -19,7 +19,11 @@
         </div>
         <div class="modal-body">
           <div class="text-center">
-            <img class="product-img" :src="product.image" alt="Product image" />
+            <NuxtImg
+              class="product-img"
+              :src="product.image"
+              alt="Product image"
+            />
             <div />
             <div class="badge badge-neutral-800 mt-3">
               {{ product.category }}

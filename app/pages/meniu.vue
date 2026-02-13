@@ -123,6 +123,7 @@ useSeoMeta({
 </template>
 <script>
 const mainCategory = "Toate";
+
 export default {
   data() {
     return {
@@ -166,7 +167,7 @@ export default {
     },
     async GetProducts() {
       this.productsLoaded = true;
-      const SPREADSHEET_ID = "1pHEYVEN6noxTO379AEIJiUFGxOJ1ujV_tJT46FKitQQ";
+      const SPREADSHEET_ID = "1cfUow7-iV2oyO7Hhfo8OQe00qeGtqFjerSP4PG1jg0k";
 
       const { table } = await fetch(
         `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:json`
@@ -175,6 +176,7 @@ export default {
         .then((data) => JSON.parse(data.substring(47, data.length - 2)));
 
       const keys = productKeys();
+      console.log(table.rows);
       let list = table.rows.map((row) => {
         const values = keys.map((_, i) =>
           row.c[i] && row.c[i].v ? row.c[i].v : null
@@ -187,11 +189,26 @@ export default {
 
         return obj;
       });
-      list = list.map((item) => ({
-        ...item,
-        category: item.category ?? "Altele",
-      }));
-      list;
+      list = list.map((item) => {
+        let finalImage = "/default-menu-item.webp";
+
+        if (item.image && item.image.trim() !== "") {
+          if (item.image.includes("drive.google.com")) {
+            const fileId = item.image.split("/d/")[1]?.split("/")[0];
+            if (fileId) {
+              finalImage = `https://lh3.googleusercontent.com/u/0/d/${fileId}=s2000`;
+            }
+          } else {
+            finalImage = item.image;
+          }
+        }
+
+        return {
+          ...item,
+          category: item.category ?? "Altele",
+          image: finalImage,
+        };
+      });
 
       //this.categories = Object.groupBy(list, ({ product }) => product);
       this.categories = [...new Set(list.map((item) => item.category))];
