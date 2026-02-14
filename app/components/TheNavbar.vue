@@ -44,7 +44,7 @@
             >
               <img src="@/assets/icons/facebook.svg" alt="Facebook" />
             </a>
-            <a
+            <!-- <a
               :href="socialMedias().tiktok"
               target="_blank"
               rel="noopener"
@@ -60,7 +60,7 @@
               title="YouTube"
             >
               <img src="@/assets/icons/youtube.svg" alt="YouTube" />
-            </a>
+            </a> -->
           </div>
           <div class="col-auto mt-2 d-sm-none">
             <div

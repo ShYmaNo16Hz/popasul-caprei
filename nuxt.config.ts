@@ -33,9 +33,9 @@ export default defineNuxtConfig({
     // Public
     public: {
       domainURL: 'https://popasul-caprei.vercel.app',
-      contactFacebook: 'https://www.facebook.com/hoteltoacabellevue',
+      contactFacebook: 'https://www.facebook.com/PopasulCapreiOstra',
       contactYouTube: 'https://www.youtube.com/user/HotelToacaBellevue',
-      contactInstagram: 'https://www.instagram.com/toaca_bellevue',
+      contactInstagram: 'https://www.instagram.com/popasulcaprei',
       contactTikTok: 'www.google.com',
       contactEmail: 'toacabellevue@yahoo.com',
       contactPhone: '+40758237440',

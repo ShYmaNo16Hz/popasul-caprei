@@ -34,7 +34,7 @@
                 <img src="@/assets/icons/facebook.svg" alt="Facebook" />
               </a>
             </div>
-            <div class="col-auto">
+            <!-- <div class="col-auto">
               <a
                 :href="socialMedias().tiktok"
                 target="_blank"
@@ -54,7 +54,7 @@
               >
                 <img src="@/assets/icons/youtube.svg" alt="YouTube" />
               </a>
-            </div>
+            </div> -->
           </div>
           <div class="paragraph text-neutral-500">
             Copyright © Popasul Caprei, {{ new Date().getFullYear() }}
