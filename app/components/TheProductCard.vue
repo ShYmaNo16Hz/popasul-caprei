@@ -2,7 +2,7 @@
   <div class="card" @click="ViewProduct()">
     <div class="card-body">
       <div class="card-content">
-        <NuxtImg :src="productImage" alt="Product image" class="mb-3" />
+        <img :src="productImage" alt="Product image" class="mb-3" />
         <div class="badge badge-neutral-800 mb-3">
           {{ product.category }}
         </div>

@@ -143,13 +143,13 @@ export default {
       if (this.selectedCategory !== mainCategory) {
         products = products.filter(
           (item) =>
-            item.category.toLowerCase() === this.selectedCategory.toLowerCase()
+            item.category.toLowerCase() === this.selectedCategory.toLowerCase(),
         );
       }
       if (this.searchText) {
         this.selectedCategory = mainCategory;
         products = products.filter((item) =>
-          item.name.toLowerCase().includes(this.searchText.toLowerCase())
+          item.name.toLowerCase().includes(this.searchText.toLowerCase()),
         );
       }
       return products;
@@ -170,16 +170,15 @@ export default {
       const SPREADSHEET_ID = "1cfUow7-iV2oyO7Hhfo8OQe00qeGtqFjerSP4PG1jg0k";
 
       const { table } = await fetch(
-        `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:json`
+        `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:json`,
       )
         .then((res) => res.text())
         .then((data) => JSON.parse(data.substring(47, data.length - 2)));
 
       const keys = productKeys();
-      console.log(table.rows);
       let list = table.rows.map((row) => {
         const values = keys.map((_, i) =>
-          row.c[i] && row.c[i].v ? row.c[i].v : null
+          row.c[i] && row.c[i].v ? row.c[i].v : null,
         );
 
         const obj = {};

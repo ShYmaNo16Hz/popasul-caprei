@@ -15,11 +15,11 @@ export const socialMedias = () => {
   return {
     facebook: config.public.contactFacebook,
     instagram: config.public.contactInstagram,
-    youtube: config.public.contactYouTube,
-    tiktok: config.public.contactTikTok,
-    email: config.public.contactEmail,
-    phone: config.public.contactPhone,
-    address: config.public.contactAddress,
+    //youtube: config.public.contactYouTube,
+    //tiktok: config.public.contactTikTok,
+    //email: config.public.contactEmail,
+    //phone: config.public.contactPhone,
+    //address: config.public.contactAddress,
   };
 };
 

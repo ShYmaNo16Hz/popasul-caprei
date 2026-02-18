@@ -20,7 +20,7 @@ export default defineNuxtConfig({
         { property: "og:type", content: "website" },
         {
           property: "og:image",
-          content: `https://popasul-caprei.vercel.app/thumbnail.webp`,
+          content: `https://aliascapra.ro/thumbnail.webp`,
         },
       ],
       link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
@@ -32,14 +32,14 @@ export default defineNuxtConfig({
 
     // Public
     public: {
-      domainURL: 'https://popasul-caprei.vercel.app',
+      domainURL: 'https://aliascapra.ro',
       contactFacebook: 'https://www.facebook.com/PopasulCapreiOstra',
-      contactYouTube: 'https://www.youtube.com/user/HotelToacaBellevue',
       contactInstagram: 'https://www.instagram.com/popasulcaprei',
-      contactTikTok: 'www.google.com',
-      contactEmail: 'toacabellevue@yahoo.com',
-      contactPhone: '+40758237440',
-      contactAddress: 'Toaca Bellevue, Str. Gheorghe Lazăr nr. 12, Gura Humorului 725300',
+      //contactYouTube: 'https://www.youtube.com/user/HotelToacaBellevue',
+      //contactTikTok: 'www.google.com',
+      //contactEmail: 'toacabellevue@yahoo.com',
+      //contactPhone: '+40758237440',
+      //contactAddress: 'Toaca Bellevue, Str. Gheorghe Lazăr nr. 12, Gura Humorului 725300',
     },
   },
 });
