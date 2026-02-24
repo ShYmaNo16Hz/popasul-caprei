@@ -1,6 +1,3 @@
-<!--
-https://docs.google.com/spreadsheets/d/1pHEYVEN6noxTO379AEIJiUFGxOJ1ujV_tJT46FKitQQ/edit?gid=0#gid=0
--->
 <template>
   <section class="hero">
     <nuxt-img src="/home-bg-img.webp" class="hero-img" />
@@ -39,7 +36,7 @@ export default {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top;
+  object-position: center;
 }
 .hero-bottom-img {
   z-index: -1;
@@ -61,8 +58,8 @@ h1 {
 
 .hero-bottom-area {
   position: absolute;
-  background: linear-gradient(180deg, rgb(10 12 15 / 0%) 30%, #0a0c0f 100%);
-  height: 90%;
+  background: linear-gradient(180deg, rgb(10 12 15 / 0%) 0%, #0a0c0f 100%);
+  height: 100%;
   bottom: 0;
   width: 100%;
 }

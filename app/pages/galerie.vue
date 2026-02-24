@@ -1,34 +1,6 @@
 <script setup>
+import ThePageHeaderWithImage_Gallery from "~/components/ThePageHeaderWithImage_Galerry.vue";
 import bgImage from "@/assets/images/gallery-bg.webp";
-
-import img_1 from "@/assets/images/gallery/1.webp";
-import img_2 from "@/assets/images/gallery/2.webp";
-import img_3 from "@/assets/images/gallery/3.webp";
-import img_4 from "@/assets/images/gallery/3.webp";
-import img_5 from "@/assets/images/gallery/1.webp";
-import img_6 from "@/assets/images/gallery/2.webp";
-import img_7 from "@/assets/images/gallery/3.webp";
-
-//import { onMounted } from "vue";
-
-const images = [img_1, img_2, img_3, img_4, img_5, img_6, img_7];
-
-const countImagesLoad = ref(0);
-const handleImageLoaded = () => {
-  countImagesLoad.value++;
-};
-
-// onMounted(async () => {
-//   if (process.client) {
-//     const Masonry = (await import("masonry-layout")).default;
-
-//     new Masonry(".masonry-grid", {
-//       itemSelector: ".masonry-item",
-//       percentPosition: true,
-//       gutter: 16,
-//     });
-//   }
-// });
 
 const router = useRouter();
 const currentRoute = router.currentRoute;
@@ -47,14 +19,14 @@ useSeoMeta({
 });
 </script>
 <template>
-  <ThePageHeaderWithImage
+  <ThePageHeaderWithImage_Gallery
     title="Galerie"
     :bgImage="bgImage"
     description="Aici veți găsi liniște, bucate pregătite cu drag și atmosfera caldă a satului bucovinean."
   />
 
   <div class="container-lg mt-5 pt-4 px-3 px-sm-4 px-lg-0">
-    <div class="row" v-if="countImagesLoad < 4">
+    <div class="row" v-if="imagesAreLoading">
       <div
         class="col-md-6 col-lg-4 mb-4"
         v-for="(img, index) in 3"
@@ -68,21 +40,65 @@ useSeoMeta({
       data-masonry='{"percentPosition": true }'
     >
       <div v-for="(img, index) in images" :key="index">
-        <TheGalleryImage :bg-image="img" @loaded="handleImageLoaded" />
+        <TheGalleryImage :bg-image="img" @loaded="() => {}" />
       </div>
     </div>
   </div>
-  <TheProductModal :product="selectedProduct" />
 </template>
 <script>
 export default {
   data() {
     return {
-      products: [],
-      selectedProduct: {},
+      images: [],
+      imagesAreLoading: false,
     };
   },
-  methods: {},
-  created() {},
+  methods: {
+    async GetImages() {
+      this.imagesAreLoading = true;
+      const SPREADSHEET_ID = "17zaPm9tLvW_m-hmeT7kweLjZukSVX8IfZ_J05hml2V4";
+
+      const { table } = await fetch(
+        `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:json`,
+      )
+        .then((res) => res.text())
+        .then((data) => JSON.parse(data.substring(47, data.length - 2)));
+
+      const keys = ["image"];
+      let list = table.rows.map((row) => {
+        const values = keys.map((_, i) =>
+          row.c[i] && row.c[i].v ? row.c[i].v : null,
+        );
+
+        const obj = {};
+        keys.forEach((key, index) => {
+          obj[key] = values[index];
+        });
+
+        return obj;
+      });
+      list = list.map((item) => {
+        let finalImage = "/default-menu-item.webp";
+
+        if (item.image && item.image.trim() !== "") {
+          if (item.image.includes("drive.google.com")) {
+            const fileId = item.image.split("/d/")[1]?.split("/")[0];
+            if (fileId) {
+              finalImage = `https://lh3.googleusercontent.com/u/0/d/${fileId}=s2000`;
+            }
+          } else {
+            finalImage = item.image;
+          }
+        }
+
+        return finalImage;
+      });
+      this.images = list;
+      this.imagesAreLoading = false;
+    },
+  },
+  created() {
+    this.GetImages();
+  },
 };
 </script>

@@ -1,5 +1,6 @@
 <script setup>
-import bgImage from "@/assets/images/gallery-bg.webp";
+import bgImage from "@/assets/images/about-us-bg-img.webp";
+import ThePageHeaderWithImage_Galerry from "~/components/ThePageHeaderWithImage_Galerry.vue";
 
 const router = useRouter();
 const currentRoute = router.currentRoute;
@@ -18,7 +19,7 @@ useSeoMeta({
 });
 </script>
 <template>
-  <ThePageHeaderWithImage
+  <ThePageHeaderWithImage_Galerry
     title="Despre noi"
     :bgImage="bgImage"
     description="Aici veți găsi liniște, bucate pregătite cu drag și atmosfera caldă a satului bucovinean."
@@ -85,7 +86,7 @@ useSeoMeta({
     <div class="row align-items-center mb-5 pb-5">
       <div class="col-xl-5 mt-4 mt-xl-0 order-1 order-xl-0">
         <img
-          src="@/assets/images/about-us/1.webp"
+          src="@/assets/images/about-us/3.webp"
           alt="About Us Image"
           class="about-img"
         />

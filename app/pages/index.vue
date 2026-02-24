@@ -1,6 +1,3 @@
-<!--
-https://docs.google.com/spreadsheets/d/1pHEYVEN6noxTO379AEIJiUFGxOJ1ujV_tJT46FKitQQ/edit?gid=0#gid=0
--->
 <script setup>
 const router = useRouter();
 const currentRoute = router.currentRoute;
@@ -116,14 +113,14 @@ export default {
       const SPREADSHEET_ID = "1cfUow7-iV2oyO7Hhfo8OQe00qeGtqFjerSP4PG1jg0k";
 
       const { table } = await fetch(
-        `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:json`
+        `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:json`,
       )
         .then((res) => res.text())
         .then((data) => JSON.parse(data.substring(47, data.length - 2)));
       const keys = productKeys();
       let list = table.rows.map((row) => {
         const values = keys.map((_, i) =>
-          row.c[i] && row.c[i].v ? row.c[i].v : null
+          row.c[i] && row.c[i].v ? row.c[i].v : null,
         );
 
         const obj = {};

@@ -1,4 +1,5 @@
 <script setup>
+import ThePageHeaderWithImage_Menu from "~/components/ThePageHeaderWithImage_Menu.vue";
 import bgImage from "@/assets/images/menu-bg.webp";
 
 const router = useRouter();
@@ -18,7 +19,7 @@ useSeoMeta({
 });
 </script>
 <template>
-  <ThePageHeaderWithImage
+  <ThePageHeaderWithImage_Menu
     title="Meniu"
     :bgImage="bgImage"
     description="Preparate tradiționale, ingrediente locale și gusturi care amintesc de copilărie"

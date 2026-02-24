@@ -21,23 +21,21 @@ const onImageError = () => {
 </script>
 
 <template>
-  <ClientOnly>
-    <div class="card-image">
-      <div v-if="isLoading" class="spinner-overlay">
-        <div class="spinner" />
-      </div>
-      <img
-        :src="bgImage"
-        loading="lazy"
-        @load="onImageLoad"
-        @error="onImageError"
-        :style="{
-          opacity: !isLoading ? 1 : 0,
-          transition: 'opacity 0.3s ease',
-        }"
-      />
+  <div class="card-image">
+    <div v-if="isLoading" class="spinner-overlay">
+      <div class="spinner" />
     </div>
-  </ClientOnly>
+    <img
+      :src="bgImage"
+      loading="lazy"
+      @load="onImageLoad"
+      @error="onImageError"
+      :style="{
+        opacity: !isLoading ? 1 : 0,
+        transition: 'opacity 0.3s ease',
+      }"
+    />
+  </div>
 </template>
 
 <style scoped>

@@ -48,7 +48,7 @@ export default {
   position: absolute;
   height: 100%;
   width: 100%;
-  background: linear-gradient(180deg, rgba(10, 12, 15, 0.4) 0%, #14181f 100%);
+  background: linear-gradient(180deg, rgba(10, 12, 15, 0) 0%, #14181f 100%);
 }
 .hero-content {
   height: 100%;
